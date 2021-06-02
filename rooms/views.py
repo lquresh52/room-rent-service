@@ -18,7 +18,6 @@ class Rooms(TemplateView):
 
 
 
-
 def add_room(request, *args, **kwargs):
     if request.method == 'POST':
         form = RoomForm(request.POST)
@@ -35,7 +34,7 @@ def add_room(request, *args, **kwargs):
 @api_view(['GET'])
 def room_api(request, *args, **kwargs):
     rooms = Room.objects.all()
-    print(rooms)
+    # print(rooms)
     data = RoomSerializer(rooms, many=True).data
-    print(data)
+    # print(data)
     return Response(data)
