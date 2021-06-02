@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="{% static 'rooms/css/style.css' %}">
+
+    <title>Add Room</title>
+</head>
+
+<body>
+    <h2>Add Room</h2>
+    <div class="container">
+        <div class="myform">
+            <form method="post">{% csrf_token %}
+                <div>
+                    <p>Username</p>
+                    {{form.username}}
+                </div>
+                <div>
+                    <p>Price</p>
+                    {{form.price}}
+                </div>
+                <div>
+                    <p>Address</p>
+                    {{form.address}}
+                </div>
+                <div>
+                    <p>CoordX</p>
+                    {{form.coordX}}
+                </div>
+                <div>
+                    <p>CoordY</p>
+                    {{form.coordY}}
+                </div>
+                <div>
+                    <p>Picture</p>
+                    {{form.picture}}
+                </div>
+                <div>
+                    <p></p>
+                    <button>Submit</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="roomAddress">
+            <div>
+                <input type="text" id="address" placeholder="Find address">
+            </div>
+            <div>
+                <br>
+                <button onclick="findAddresses()">Find</button>
+            </div>
+            <div id="addresses"></div>
+            <div id="mapid" class="map"></div>
+        </div>
+    </div>
+
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script> -->
+    <script type="text/javascript" src="{% static 'rooms/js/app.js' %}"></script>
+</body>
+
+</html>
